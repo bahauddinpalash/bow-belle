@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bow & Belle Gifts House | Luxury Gift & Floral Catalog</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #8a3b53;
+            --primary-dark: #6e2e42;
+            --rose-gold: #b76e79;
+            --blush: #fdf2f4;
+            --cream: #faf7f2;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+            --white: #ffffff;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #1EBE5D;
+            --shadow: 0 10px 30px rgba(138, 59, 83, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header & Hero */
+        header {
+            background: linear-gradient(135deg, var(--blush) 0%, var(--white) 100%);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(183, 110, 121, 0.15);
+        }
+
+        .logo-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .brand-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Search & Filters */
+        .controls-container {
+            max-width: 1200px;
+            margin: 2rem auto 1rem;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 1px solid #e0d0d4;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            background: var(--white);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(138, 59, 83, 0.1);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--rose-gold);
+        }
+
+        .categories-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .cat-btn {
+            background: var(--white);
+            border: 1px solid #e0d0d4;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(138, 59, 83, 0.2);
+        }
+
+        /* Main Catalog Grid - Fully Responsive */
+        .catalog-container {
+            max-width: 1200px;
+            margin: 2rem auto 4rem;
+            padding: 0 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid rgba(183, 110, 121, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(138, 59, 83, 0.15);
+        }
+
+        .product-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #f7f0f2;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(138, 59, 83, 0.9);
+            color: var(--white);
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .product-title {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #f0e6e8;
+        }
+
+        .product-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* WhatsApp Button Styling */
+        .whatsapp-btn {
+            background-color: var(--whatsapp);
+            color: var(--white);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: var(--whatsapp-dark);
+            transform: scale(1.02);
+        }
+
+        /* Footer Info */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer p {
+            color: #e2c4cb;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .owner-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--whatsapp);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .owner-whatsapp:hover {
+            background: var(--whatsapp-dark);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #d0b2b9;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <h1 class="brand-title"><i class="fa-solid fa-gift" style="color: var(--rose-gold);"></i> Bow & Belle Gifts House</h1>
+            <p class="brand-subtitle">Curated Luxury Hampers, Floral Bouquets & Customized Gifts</p>
+        </div>
+    </header>
+
+    <div class="controls-container">
+        <div class="search-bar">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search gifts, hampers, flowers..." onkeyup="filterProducts()">
+        </div>
+        <div class="categories-nav">
+            <button class="cat-btn active" onclick="filterCategory('all', this)">All Collections</button>
+            <button class="cat-btn" onclick="filterCategory('hampers', this)">Gift Hampers</button>
+            <button class="cat-btn" onclick="filterCategory('floral', this)">Floral & Bouquets</button>
+            <button class="cat-btn" onclick="filterCategory('baby', this)">Baby & Mom</button>
+            <button class="cat-btn" onclick="filterCategory('corporate', this)">Corporate & Events</button>
+        </div>
+    </div>
+
+    <main class="catalog-container">
+        <div class="products-grid" id="productGrid">
+            
+            <!-- Product 1 -->
+            <div class="product-card" data-category="hampers" data-name="grand royale champagne chocolates hamper">
+                <div class="product-img-wrapper">
+                    <span class="badge">Best Seller</span>
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80" alt="Grand Royale Hamper">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gift Hampers</span>
+                    <h3 class="product-title">Grand Royale Champagne & Chocolates</h3>
+                    <p class="product-desc">An ultra-luxurious gift box featuring premium sparkling beverage, artisanal chocolates, and imported treats.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 380</span>
+                        <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20am%20interested%20in%20ordering%20the%20Grand%20Royale%20Champagne%20%26%20Chocolates%20Hamper%20(RM%20380)." target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-category="floral" data-name="blushing pink rose elegance bouquet">
+                <div class="product-img-wrapper">
+                    <span class="badge" style="background: var(--rose-gold);">Trending</span>
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80" alt="Blushing Pink Roses">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Floral & Bouquets</span>
+                    <h3 class="product-title">Blushing Pink Rose Elegance</h3>
+                    <p class="product-desc">Fresh premium gradient pink roses elegantly wrapped with signature satin ribbon bows for anniversaries or birthdays.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 160</span>
+                        <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20am%20interested%20in%20ordering%20the%20Blushing%20Pink%20Rose%20Elegance%20(RM%20160)." target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="baby" data-name="little blessing newborn baby gift box">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=600&q=80" alt="Newborn Gift Box">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Baby & Mom</span>
+                    <h3 class="product-title">Little Blessing Newborn Gift Box</h3>
+                    <p class="product-desc">Organic cotton baby romper, plush rabbit toy, booties, and soothing balm packed in a keepsake wicker basket.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 220</span>
+                        <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20am%20interested%20in%20ordering%20the%20Little%20Blessing%20Newborn%20Gift%20Box%20(RM%20220)." target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-category="corporate" data-name="executive gold appreciation gift set">
+                <div class="product-img-wrapper">
+                    <span class="badge" style="background: #c59b27;">Corporate</span>
+                    <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=80" alt="Executive Gift Set">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Corporate & Events</span>
+                    <h3 class="product-title">Executive Gold Appreciation Set</h3>
+                    <p class="product-desc">Customized leather notebook, metallic pen, premium tea canister, and gourmet cookies tailored for VIP clients.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 290</span>
+                        <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20am%20interested%20in%20ordering%20the%20Executive%20Gold%20Appreciation%20Set%20(RM%20290)." target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-category="hampers" data-name="artisan wellness tea fruit basket">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80" alt="Wellness Basket">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gift Hampers</span>
+                    <h3 class="product-title">Artisan Wellness & Fresh Fruit Basket</h3>
+                    <p class="product-desc">Imported seasonal fresh fruits paired with organic flower tea tins and raw honey. Perfect get-well or festive gift.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 250</span>
+                        <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20am%20interested%20in%20ordering%20the%20Artisan%20Wellness%20%26%20Fresh%20Fruit%20Basket%20(RM%20250)." target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-category="floral" data-name="eternal love red rose box">
+                <div class="product-img-wrapper">
+                    <span class="badge">Romantic</span>
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80" alt="Eternal Love Box">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Floral & Bouquets</span>
+                    <h3 class="product-title">Eternal Love Velvet Rose Box</h3>
+                    <p class="product-desc>A luxurious round velvet hatbox filled with 24 premium red roses and Ferrero Rocher chocolates hidden inside.</p>
+                    <div class="product-footer">
+                        <span class="product-price">RM 280</span>
+                        <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20am%20interested%20in%20ordering%20the%20Eternal%20Love%20Velvet%20Rose%20Box%20(RM%20280)." target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp"></i> Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <h3>Bow & Belle Gifts House</h3>
+        <p>Crafting memorable moments with heartfelt gifts & bespoke arrangements.</p>
+        <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20would%20like%20to%20inquire%20about%20custom%20gift%20arrangements." target="_blank" class="owner-whatsapp">
+            <i class="fa-brands fa-whatsapp fa-lg"></i> Chat with Owner (+60 19-479 1719)
+        </a>
+        <div class="copyright">
+            &copy; 2026 Bow & Belle Gifts House. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Filtering Categories
+        function filterCategory(category, btn) {
+            // Update active button state
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Live Search Bar
+        function filterProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+
+            cards.forEach(card => {
+                const name = card.dataset.name;
+                const title = card.querySelector('.product-title').innerText.toLowerCase();
+                const desc = card.querySelector('.product-desc').innerText.toLowerCase();
+
+                if (name.includes(input) || title.includes(input) || desc.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
