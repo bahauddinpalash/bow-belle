@@ -43,10 +43,20 @@
             font-family: 'Playfair Display', serif;
         }
 
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 8px 1rem;
+            letter-spacing: 0.5px;
+        }
+
         /* Header & Hero */
         header {
             background: linear-gradient(135deg, var(--blush) 0%, var(--white) 100%);
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem 2rem;
             text-align: center;
             border-bottom: 1px solid rgba(183, 110, 121, 0.15);
         }
@@ -57,29 +67,68 @@
         }
 
         .brand-title {
-            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-size: clamp(2.2rem, 4vw, 3rem);
             color: var(--primary);
             margin-bottom: 0.5rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
 
         .brand-subtitle {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-light);
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
+        .hero-banner {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 1.5rem auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-banner-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .hero-banner-text p {
+            font-size: 0.9rem;
+            color: #f1d3dc;
+        }
+
+        .hero-btn {
+            background: var(--white);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .hero-btn:hover {
+            background: var(--blush);
+        }
+
         /* Search & Filters */
         .controls-container {
             max-width: 1200px;
-            margin: 2rem auto 1rem;
+            margin: 2.5rem auto 1rem;
             padding: 0 1rem;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.2rem;
             align-items: center;
         }
 
@@ -118,13 +167,12 @@
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
-            margin-top: 0.5rem;
         }
 
         .cat-btn {
             background: var(--white);
             border: 1px solid #e0d0d4;
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
@@ -273,17 +321,52 @@
             transform: scale(1.02);
         }
 
+        /* Features Section */
+        .features-section {
+            background: var(--white);
+            padding: 4rem 1rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(183, 110, 121, 0.1);
+            border-bottom: 1px solid rgba(183, 110, 121, 0.1);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-box i {
+            font-size: 2.5rem;
+            color: var(--rose-gold);
+            margin-bottom: 15px;
+        }
+
+        .feature-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .feature-box p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
         /* Footer Info */
         footer {
             background: var(--primary-dark);
             color: var(--white);
             text-align: center;
-            padding: 3rem 1rem;
-            margin-top: 4rem;
+            padding: 3.5rem 1rem 2rem;
+            margin-top: 0;
         }
 
         footer h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
         }
 
@@ -299,21 +382,25 @@
             gap: 10px;
             background: var(--whatsapp);
             color: var(--white);
-            padding: 12px 25px;
+            padding: 12px 28px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
+            margin-bottom: 2rem;
         }
 
         .owner-whatsapp:hover {
             background: var(--whatsapp-dark);
+            transform: scale(1.03);
         }
 
         .copyright {
             margin-top: 2rem;
             font-size: 0.85rem;
             color: #d0b2b9;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
         }
 
         /* Responsive adjustments */
@@ -322,17 +409,33 @@
                 grid-template-columns: 1fr;
             }
             header {
-                padding: 1.5rem 1rem;
+                padding: 2rem 1rem;
+            }
+            .hero-banner {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
+    <div class="announcement-bar">
+        ✨ Custom floral arrangements & luxury hampers available for preorder! Chat with us on WhatsApp.
+    </div>
+
     <header>
         <div class="logo-container">
             <h1 class="brand-title"><i class="fa-solid fa-gift" style="color: var(--rose-gold);"></i> Bow & Belle Gifts House</h1>
             <p class="brand-subtitle">Curated Luxury Hampers, Floral Bouquets & Customized Gifts</p>
+            
+            <div class="hero-banner">
+                <div class="hero-banner-text" style="text-align: left;">
+                    <h4>Looking for Custom Corporate or Event Gifts?</h4>
+                    <p>We tailor special packages to suit your exact budget and theme.</p>
+                </div>
+                <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20would%20like%20to%20discuss%20a%20custom%20gift%20order." target="_blank" class="hero-btn">Get Custom Quote</a>
+            </div>
         </div>
     </header>
 
@@ -455,7 +558,7 @@
                 <div class="product-info">
                     <span class="product-category">Floral & Bouquets</span>
                     <h3 class="product-title">Eternal Love Velvet Rose Box</h3>
-                    <p class="product-desc>A luxurious round velvet hatbox filled with 24 premium red roses and Ferrero Rocher chocolates hidden inside.</p>
+                    <p class="product-desc">A luxurious round velvet hatbox filled with 24 premium red roses and Ferrero Rocher chocolates hidden inside.</p>
                     <div class="product-footer">
                         <span class="product-price">RM 280</span>
                         <a href="https://wa.me/60194791719?text=Hi%20Bow%20%26%20Belle%2C%20I%20am%20interested%20in%20ordering%20the%20Eternal%20Love%20Velvet%20Rose%20Box%20(RM%20280)." target="_blank" class="whatsapp-btn">
@@ -467,6 +570,26 @@
 
         </div>
     </main>
+
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fa-solid fa-heart-circle-check"></i>
+                <h4>Handcrafted with Care</h4>
+                <p>Every arrangement and gift hamper is meticulously curated and packed by expert hands.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h4>Reliable Delivery</h4>
+                <p>Ensuring your gifts arrive fresh, pristine, and right on time for your special occasion.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-comments"></i>
+                <h4>Direct WhatsApp Support</h4>
+                <p>Connect instantly with our owner for custom requests, card messages, and personal touches.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <h3>Bow & Belle Gifts House</h3>
@@ -482,7 +605,6 @@
     <script>
         // Filtering Categories
         function filterCategory(category, btn) {
-            // Update active button state
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
@@ -515,4 +637,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
